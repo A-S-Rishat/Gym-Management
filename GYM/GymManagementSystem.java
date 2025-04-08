@@ -7,10 +7,9 @@ public class GymManagementSystem {
         Scanner scanner = new Scanner(System.in);
         LoginPage loginPage = new LoginPage(scanner);
 
-        loginPage.run(); // Start the login page
+        loginPage.run();
     }
 
-    // LoginPage Class
     public static class LoginPage {
         private Scanner scanner;
         private String username;
@@ -47,7 +46,6 @@ public class GymManagementSystem {
             }
         }
 
-        // Method to validate login from credentials.txt
         private boolean validateLogin(String username, String password) {
             try (BufferedReader br = new BufferedReader(new FileReader("credentials.txt"))) {
                 String line;
@@ -69,7 +67,6 @@ public class GymManagementSystem {
         }
     }
 
-    // AdminPage Class
     public static class AdminPage {
         private Scanner scanner;
         private List<String> trainers = new ArrayList<>();
@@ -88,7 +85,7 @@ public class GymManagementSystem {
                 System.out.println("4. Logout");
 
                 int choice = scanner.nextInt();
-                scanner.nextLine();  // Consume newline
+                scanner.nextLine(); 
 
                 switch (choice) {
                     case 1:
@@ -102,7 +99,7 @@ public class GymManagementSystem {
                         break;
                     case 4:
                         System.out.println("Logging out...");
-                        return; // Exit and go back to login page
+                        return;
                     default:
                         System.out.println("Invalid choice. Try again.");
                 }
@@ -118,7 +115,6 @@ public class GymManagementSystem {
 
         private void manageMemberships() {
             System.out.println("Managing Memberships...");
-            // Add, View, or Remove memberships
             System.out.println("Enter Member Name to Register: ");
             String memberName = scanner.nextLine();
             members.add(memberName);
@@ -131,7 +127,6 @@ public class GymManagementSystem {
         }
     }
 
-    // TrainerPage Class
     public static class TrainerPage {
         private Scanner scanner;
         private Map<String, String> assignedPlans = new HashMap<>();
@@ -148,7 +143,7 @@ public class GymManagementSystem {
                 System.out.println("3. Logout");
 
                 int choice = scanner.nextInt();
-                scanner.nextLine();  // Consume newline
+                scanner.nextLine();
 
                 switch (choice) {
                     case 1:
@@ -159,7 +154,7 @@ public class GymManagementSystem {
                         break;
                     case 3:
                         System.out.println("Logging out...");
-                        return; // Exit and go back to login page
+                        return;
                     default:
                         System.out.println("Invalid choice. Try again.");
                 }
@@ -177,11 +172,9 @@ public class GymManagementSystem {
 
         private void viewFeedback() {
             System.out.println("Viewing Feedback...");
-            // Logic to view feedback from users
         }
     }
 
-    // UserPage Class
     public static class UserPage {
         private Scanner scanner;
         private Map<String, String> feedback = new HashMap<>();
@@ -193,7 +186,7 @@ public class GymManagementSystem {
         }
 
         public void run() {
-            while (true) {  // Keep running the menu until the user exits
+            while (true) {
                 System.out.println("\n--- User Page ---");
                 System.out.println("1. Register/Subscribe for Membership");
                 System.out.println("2. Book a Training Session");
@@ -203,7 +196,7 @@ public class GymManagementSystem {
                 System.out.println("6. Logout");
 
                 int choice = scanner.nextInt();
-                scanner.nextLine();  // Consume newline
+                scanner.nextLine();
 
                 switch (choice) {
                     case 1:
@@ -223,7 +216,7 @@ public class GymManagementSystem {
                         break;
                     case 6:
                         System.out.println("Logging out...");
-                        return; // Exit the loop and return to login screen
+                        return;
                     default:
                         System.out.println("Invalid choice. Try again.");
                 }
@@ -232,7 +225,6 @@ public class GymManagementSystem {
 
         private void registerMembership() {
             System.out.println("Registering for Membership...");
-            // Logic for user membership registration
         }
 
         private void bookTrainingSession() {
